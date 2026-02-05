@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/remainders", tags=["remainders"])
 
