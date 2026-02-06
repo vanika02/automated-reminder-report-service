@@ -1,4 +1,4 @@
-# AUTOMATTED REMAINDER AND REPORT SERVICE APPLICATION
+# AUTOMATED REMAINDER AND REPORT SERVICE APPLICATION
 
 ## PROJECT STRUCTURE 
 
@@ -16,3 +16,9 @@ automated_rs_service/
 │   └── tests
 └── frontend
 ```
+
+## what this project does
+
+## Architecture
+
+## Why this project exists
