@@ -13,3 +13,7 @@ def get_db():
         yield db 
     finally:
         db.close()
+
+@router.post("/", response_model=RemainderResponse)
+def create(remainder: RemainderCreate, db: Session = Depends(get_db)):
+    return remainder_service.create_remainder(db, remainder.dict())
