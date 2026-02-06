@@ -7,7 +7,7 @@ engine = create_engine(
     DATABASE_URI, connect_args={"check_same_thread": False}
 )
 
-sessionLocal = sessionmaker(
+SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False
