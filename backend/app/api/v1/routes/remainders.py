@@ -17,3 +17,7 @@ def get_db():
 @router.post("/", response_model=RemainderResponse)
 def create(remainder: RemainderCreate, db: Session = Depends(get_db)):
     return remainder_service.create_remainder(db, remainder.dict())
+
+@router.get("/", response_model=list[RemainderResponse])
+def list_all(db: Session = Depends(get_db)):
+    return remainder_service.list_remainders(db)
