@@ -4,7 +4,7 @@ from datetime import datetime
 class RemainderCreate(BaseModel):
     title: str
     description: str | None = None
-    remaind_at: datetime
+    remind_at: datetime
 
 class RemainderResponse(BaseModel):
     id: int
