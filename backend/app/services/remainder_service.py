@@ -8,3 +8,6 @@ def create_remainder(db: Session, data):
 
 def list_remainders(db: Session):
     return remainder_repo.get_reminders(db)
+
+def log_remainder_created(remainder_id: int):
+    print(f"Remainder created with id: {remainder_id}")
