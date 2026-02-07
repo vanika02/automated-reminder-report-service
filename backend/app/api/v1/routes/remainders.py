@@ -14,19 +14,19 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/", response_model=RemainderResponse)
-def create(remainder: RemainderCreate, db: Session = Depends(get_db)):
-    return remainder_service.create_remainder(db, remainder.dict())
+# @router.post("/", response_model=RemainderResponse)
+# def create(remainder: RemainderCreate, db: Session = Depends(get_db)):
+#     return remainder_service.create_remainder(db, remainder.dict())
 
 @router.get("/", response_model=list[RemainderResponse])
 def list_all(db: Session = Depends(get_db)):
     return remainder_service.list_remainders(db)
 
 @router.post("/", response_model=RemainderResponse)
-async def create(remainder: RemainderCreate, db: Session = Depends(get_db), backgorund_tasks = BackgroundTasks):
+async def create(remainder: RemainderCreate, background_tasks:BackgroundTasks, db: Session = Depends(get_db)):
     result = remainder_service.create_remainder(db, remainder.dict())
 
-    backgorund_tasks.add_task(
+    background_tasks.add_task(
         remainder_service.log_remainder_created,
         result.id
     )
