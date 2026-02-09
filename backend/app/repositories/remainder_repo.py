@@ -11,3 +11,7 @@ def create_remainder(db:Session, remainder: Remainder):
 
 def get_reminders(db: Session):
     return db.query(Remainder).all()
+
+# Total Remainders count
+def count_all(db: Session):
+    return db.query(func.count()).select_from(Remainder).scalar()
