@@ -17,5 +17,6 @@ def get_analytics(db: Session):
     return {
         "total": remainder_repo.count_all(db),
         "active": remainder_repo.count_active(db),
-        "inactive": remainder_repo.count_all
+        "inactive": remainder_repo.count_inactive(db),
+        "today": remainder_repo.count_today(db)
     }
