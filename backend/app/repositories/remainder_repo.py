@@ -15,3 +15,7 @@ def get_reminders(db: Session):
 # Total Remainders count
 def count_all(db: Session):
     return db.query(func.count()).select_from(Remainder).scalar()
+
+# Total Active Reminders 
+def count_active(db: Session):
+    return db.query(func.count()).filter(Remainder.is_active == True).scalar()
