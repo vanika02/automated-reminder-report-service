@@ -11,3 +11,11 @@ def list_remainders(db: Session):
 
 def log_remainder_created(remainder_id: int):
     print(f"Remainder created with id: {remainder_id}")
+
+# Reminder analytics
+def get_analytics(db: Session):
+    return {
+        "total": remainder_repo.count_all(db),
+        "active": remainder_repo.count_active(db),
+        "inactive": remainder_repo.count_all
+    }
